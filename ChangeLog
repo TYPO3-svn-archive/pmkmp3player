@@ -1,0 +1,15 @@
+(add new changes on top of this file)
+
+
+07-11-15 Peter Klein  <peter@umloud.dk>
+
+	* Fixed problem with javascript not working correctly in Safari.
+
+07-10-03 Peter Klein  <peter@umloud.dk>
+
+	* Fixed problem where upload folder wasn't created during install.
+	* Fixed problem with flexform value "minitems" was set to 1, preventing the user from deleting a MP3 once it was selected.
+
+07-01-24 Peter Klein  <peter@umloud.dk>
+
+	* Initial release

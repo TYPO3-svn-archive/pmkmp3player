@@ -1,0 +1,93 @@
+
+plugin.tx_pmkmp3player_pi1 {
+	autostart = 0
+	loop = 1
+	bg = {$pmkmp3player.bg}
+	leftbg = {$pmkmp3player.leftbg} 
+	rightbg = {$pmkmp3player.rightbg}
+	rightbghover = {$pmkmp3player.rightbghover}
+	lefticon = {$pmkmp3player.lefticon}
+	righticon = {$pmkmp3player.righticon}
+	righticonhover = {$pmkmp3player.righticonhover}
+	text = {$pmkmp3player.text}
+	slider = {$pmkmp3player.slider}
+	loader = {$pmkmp3player.loader}
+	track = {$pmkmp3player.track}
+	border = {$pmkmp3player.border}
+	
+	dlButton.NO = IMG_RESOURCE
+	dlButton.NO.file = GIFBUILDER
+	dlButton.NO.file {
+		XY = 33,24
+		backColor = #FFFFFF
+		10 = IMAGE
+		10.file = GIFBUILDER
+		10.file.backColor = {$pmkmp3player.rightbg}
+		10.mask = typo3conf/ext/pmkmp3player/res/buttonmask1.gif
+		20 = IMAGE
+		20.file = GIFBUILDER
+		20.file.backColor = {$pmkmp3player.righticon}
+		20.mask = typo3conf/ext/pmkmp3player/res/buttonmask2.gif			
+	}
+	dlButton.RO < .dlButton.NO
+	dlButton.RO.file.10.file.backColor = {$pmkmp3player.rightbghover}
+	dlButton.RO.file.20.file.backColor = #{$pmkmp3player.righticonhover}
+		
+	beforeObj = COA
+	beforeObj {
+		wrap = <table border="0" cellspacing="0" cellpadding="2">|
+		10 = TEXT
+		10.field = title
+		10.wrap = <tr><td>Title:</td><td>|</td></tr>
+		10.required = 1
+			
+		20 = TEXT
+		20.field = artist
+		20.wrap = <tr><td>Artist:</td><td>|</td></tr>
+		20.required = 1
+			
+		30 = TEXT
+		30.field = album
+		30.wrap = <tr><td>Album:</td><td>|</td></tr>
+		30.required = 1
+			
+		40 = TEXT
+		40.field = year
+		40.wrap = <tr><td>Year:</td><td>|</td></tr>
+		40.required = 1
+			
+		50 = TEXT
+		50.field = genre
+		50.wrap = <tr><td>Genre:</td><td>|</td></tr>
+		50.required = 1
+
+		60 = TEXT
+		60.field = filesize
+		60.bytes = 1
+		60.bytes.labels = " | Kb| Mb| Gb"
+		60.wrap = <tr><td>Size:</td><td>|</td></tr>
+		60.required = 1
+		
+		100 = COA
+		100 {
+			10 = TEXT
+			10.cObject < plugin.tx_pmkmp3player_pi1.dlButton.NO
+			10.wrap = <img src="|" width="33" height="24" alt="Download" border="0" onmouseover=
+			20 = TEXT
+			20.cObject < plugin.tx_pmkmp3player_pi1.dlButton.RO
+			20.wrap = "this.src='|'" onmouseout=
+			30 = TEXT
+			30.cObject =< plugin.tx_pmkmp3player_pi1.dlButton.NO
+			30.wrap = "this.src='|'" />
+			stdWrap.typolink.parameter.field = file
+			stdWrap.typolink.parameter.wrap = uploads/tx_pmkmp3player/|
+			stdWrap.typolink.title = Download
+			stdWrap.wrap = <tr><td valign="top">|</td><td>
+		}
+	}
+	afterObj = COA
+	afterObj {
+		10 = TEXT
+		10.value = </td></tr></table>
+	}
+}

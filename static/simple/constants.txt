@@ -1,0 +1,42 @@
+###
+# This are the default TS-constants for pmkmp3player
+##
+pmkmp3player {
+
+	# cat=pmkmp3player/color/01; type=color; label=Background color:
+	bg = #EFEFEF
+	
+	# cat=pmkmp3player/color/02; type=color; label=Left background color:
+	leftbg = #E1E1E1
+	
+	# cat=pmkmp3player/color/03; type=color; label=Right background color:
+	rightbg = #C5C5C5
+	
+	# cat=pmkmp3player/color/04; type=color; label=Right background color (hover):
+	rightbghover = #666666
+	
+	# cat=pmkmp3player/color/05; type=color; label=Left icon color:
+	lefticon = #333333
+	
+	# cat=pmkmp3player/color/06; type=color; label=Right icon color:
+	righticon = #666666
+	
+	# cat=pmkmp3player/color/07; type=color; label=Right icon color (hover):
+	righticonhover = #FFFFFF
+	
+	# cat=pmkmp3player/color/08; type=color; label=Text color:
+	text = #666666
+	
+	# cat=pmkmp3player/color/09; type=color; label=Slider color:
+	slider = #ADADAD
+	
+	# cat=pmkmp3player/color/10; type=color; label=Loader bar color:
+	loader = #DFDFDF
+	
+	# cat=pmkmp3player/color/11; type=color; label=Progress track color:
+	track = #FFFFFF
+	
+	# cat=pmkmp3player/color/12; type=color; label=Progress track border color:
+	border = #666666
+}
+

@@ -1,0 +1,97 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:pmkmp3player/locallang_db.xml:tt_content.flexform_pi1.s_def</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<file>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:pmkmp3player/locallang_db.xml:tt_content.flexform_pi1.s_def.file</label>
+							<config>
+								<type>group</type>
+								<internal_type>file</internal_type>
+								<allowed>mp3</allowed>
+								<max_size>10000</max_size>
+								<uploadfolder>uploads/tx_pmkmp3player</uploadfolder>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>0</show_thumbs>
+							</config>
+						</TCEforms>
+					</file>
+					<autostart>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:pmkmp3player/locallang_db.xml:tt_content.flexform_pi1.s_def.autostart</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:pmkmp3player/locallang_db.xml:tt_content.flexform_pi1.LGL.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:pmkmp3player/locallang_db.xml:tt_content.flexform_pi1.LGL.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+								</items>
+								<default>0</default>
+							</config>
+						</TCEforms>
+					</autostart>
+					<loop>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:pmkmp3player/locallang_db.xml:tt_content.flexform_pi1.s_def.loop</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:pmkmp3player/locallang_db.xml:tt_content.flexform_pi1.LGL.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:pmkmp3player/locallang_db.xml:tt_content.flexform_pi1.LGL.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+								</items>
+								<default>0</default>
+							</config>
+						</TCEforms>
+					</loop>
+					<bgcolor>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:pmkmp3player/locallang_db.xml:tt_content.flexform_pi1.s_def.bgcolor</label>
+							<config>
+								<type>input</type>
+								<size>5</size>
+								<checkbox>1</checkbox>
+							 <wizards>
+								 <_PADDING>2</_PADDING>
+								 <color>
+									 <type>colorbox</type>
+										<title>LLL:EXT:pmkmp3player/locallang_db.xml:tt_content.flexform_pi1.s_def.bgcolor.wizard</title>
+									 <dim>12x12</dim>
+									 <tableStyle>border:solid 1px black;</tableStyle>
+									 <script>wizard_colorpicker.php</script>
+									 <JSopenParams>height=300,width=450,status=0,menubar=0,scrollbars=1</JSopenParams>
+								 </color>
+							 </wizards>
+								<default>#FFFFFF</default>
+							</config>
+						</TCEforms>
+					</bgcolor>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

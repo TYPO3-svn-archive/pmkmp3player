@@ -1,0 +1,24 @@
+
+plugin.tx_pmkmp3player_pi1 {
+	autostart = 0
+	loop = 1
+	bg = {$pmkmp3player.bg}
+	leftbg = {$pmkmp3player.leftbg} 
+	rightbg = {$pmkmp3player.rightbg}
+	rightbghover = {$pmkmp3player.rightbghover}
+	lefticon = {$pmkmp3player.lefticon}
+	righticon = {$pmkmp3player.righticon}
+	righticonhover = {$pmkmp3player.righticonhover}
+	text = {$pmkmp3player.text}
+	slider = {$pmkmp3player.slider}
+	loader = {$pmkmp3player.loader}
+	track = {$pmkmp3player.track}
+	border = {$pmkmp3player.border}
+	
+	beforeObj = COA
+	beforeObj {
+	}
+	afterObj = COA
+	afterObj {
+	}
+}
