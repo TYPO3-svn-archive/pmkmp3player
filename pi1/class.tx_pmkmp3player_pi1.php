@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2007 Peter Klein <peter@umloud.dk>
+*  (c) 2007-2009 Peter Klein <peter@umloud.dk>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -121,15 +121,16 @@ class tx_pmkmp3player_pi1 extends tslib_pibase {
 	}
 	
 	/**
-	* Get config data from Flexform
-	*
-	* @param string Flexform object
-	* @return array  config array
-	*/
+	 * Get config data from Flexform
+	 *
+	 * @param	string		$ffObj: Flexform object
+	 * @return	array		config array
+	 */
 	function getFFConfig($ffObj) {
-		while (list($sheet,$arr) = each($ffObj['data'])) {
-			while (list($field) = each($arr['lDEF'])) {
-				$val = $this->pi_getFFvalue($this->cObj->data['pi_flexform'],$field,$sheet);
+		$config = array();
+		foreach($ffObj['data'] as $sheet => $arr) {
+			foreach($arr['lDEF'] as $field => $v) {
+				$val = $this->pi_getFFvalue($ffObj,$field,$sheet);
 				if ($val!=='') $config[$field] = $val;
 			}
 		}
