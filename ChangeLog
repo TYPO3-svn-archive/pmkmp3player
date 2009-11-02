@@ -1,5 +1,8 @@
 (add new changes on top of this file)
 
+09-10-27 Waldo Sparding <waldo@familie-sparding.de>
+	* New feature: width and height can now be set via constant editor
+	* New feature: a list of mp3 files can be set in the plugins flexform
 
 07-11-15 Peter Klein  <peter@umloud.dk>
 

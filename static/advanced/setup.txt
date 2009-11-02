@@ -14,7 +14,9 @@ plugin.tx_pmkmp3player_pi1 {
 	loader = {$pmkmp3player.loader}
 	track = {$pmkmp3player.track}
 	border = {$pmkmp3player.border}
-	
+	width = {$pmkmp3player.width}
+	height = {$pmkmp3player.height}
+
 	dlButton.NO = IMG_RESOURCE
 	dlButton.NO.file = GIFBUILDER
 	dlButton.NO.file {
@@ -32,7 +34,11 @@ plugin.tx_pmkmp3player_pi1 {
 	dlButton.RO < .dlButton.NO
 	dlButton.RO.file.10.file.backColor = {$pmkmp3player.rightbghover}
 	dlButton.RO.file.20.file.backColor = #{$pmkmp3player.righticonhover}
-		
+
+	beforeAllObj = COA
+	beforeAllObj {
+	}
+	
 	beforeObj = COA
 	beforeObj {
 		wrap = <table border="0" cellspacing="0" cellpadding="2">|
@@ -89,5 +95,9 @@ plugin.tx_pmkmp3player_pi1 {
 	afterObj {
 		10 = TEXT
 		10.value = </td></tr></table>
+	}
+	
+	afterAllObj = COA
+	afterAllObj {
 	}
 }

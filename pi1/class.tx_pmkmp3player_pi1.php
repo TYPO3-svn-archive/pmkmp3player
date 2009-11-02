@@ -56,7 +56,7 @@ class tx_pmkmp3player_pi1 extends tslib_pibase {
 				"Club-House", "Hardcore", "Terror", "Indie", "BritPop", "Negerpunk", "PolskPunk", "Beat",
 				"ChristianGangstaRap", "HeavyMetal", "BlackMetal", "Crossover", "ContemporaryChristian",
 				"ChristianRock", "Merengue", "Salsa", "ThrashMetal","Anime","JPop","SynthPop");
-				
+	var $fileList = array();			
 	/**
 	 * The main method of the PlugIn
 	 *
@@ -70,7 +70,7 @@ class tx_pmkmp3player_pi1 extends tslib_pibase {
 		$this->pi_loadLL();
 		$this->pi_initPIflexForm();
 
-		$TSFields = array("file","autostart","loop","bg","leftbg","rightbg","rightbghover","lefticon","righticon","righticonhover","text","slider","loader","track","border");
+		$TSFields = array("file","autostart","loop","bg","leftbg","rightbg","rightbghover","lefticon","righticon","righticonhover","text","slider","loader","track","border","width","height");
 		$this->config = array_merge($this->getTSConfig($TSFields),$this->getFFConfig($this->cObj->data['pi_flexform']));
 		
 		$GLOBALS['TSFE']->additionalHeaderData[$this->extKey] = '<script type="text/javascript" src="'.t3lib_extMgm::siteRelPath($this->extKey).'res/swfobject.js"></script>
@@ -79,18 +79,21 @@ class tx_pmkmp3player_pi1 extends tslib_pibase {
 		// Creating valid pathes for the MP3 player
 		$swfFile = t3lib_extMgm::siteRelPath($this->extKey).'res/player.swf';
 
-		$options = 'playerID:"'.$this->cObj->data['uid'].'"';
+		$options = '';
 		while (list($k,$v) = each($this->config)) {
 			switch($k) {
 				case 'file' :
-					$this->cObj->data =array_merge($this->cObj->data,$this->getID3v11($this->uploadDir . $v));
-					$this->cObj->data['file'] = $v;
-					$this->cObj->data['filesize'] = filesize($this->uploadDir . $v);
-					$options.=($v?',soundFile:"'.str_replace(PATH_site,t3lib_div::getIndpEnv('TYPO3_SITE_URL'),t3lib_div::getFileAbsFileName($this->uploadDir . $v)).'"':'');
+					$this->fileList = t3lib_div::trimExplode(',', $v, TRUE, 0);
 				break;
 				case 'autostart' :
 				case 'loop' :
 					$options.=($v!==''?','.$k.':"'.($v?'yes':'no').'"':'');
+				break;
+				case 'width' :
+					$plwidth = ($v ? $v : '290');
+				break;
+				case 'height' :
+					$plheight = ($v ? $v : '24');
 				break;
 				case 'bg':
 				case 'leftbg':
@@ -111,12 +114,26 @@ class tx_pmkmp3player_pi1 extends tslib_pibase {
 			
 			}
 		}
-		$content = $this->cObj->cObjGetSingle($conf['beforeObj'], $conf['beforeObj.']);
-		$content.= '<p id="'.$this->extKey.$this->cObj->data['uid'].'"><a href="http://www.macromedia.com/go/getflashplayer">'.$this->pi_getLL('getFlash1').'</a> '.$this->pi_getLL('getFlash2').'</p>
+		$content = $this->cObj->cObjGetSingle($conf['beforeAllObj'], $conf['beforeAllObj.']);
+		
+		// Loop over MP3s
+		// In this loop we have to fill $this->cObj->data
+		$playerSubID = 1;
+		foreach ($this->fileList as $file) {
+			$this->cObj->data =array_merge($this->cObj->data,$this->getID3v11($this->uploadDir . $file));
+			$this->cObj->data['file'] = $file;
+			$this->cObj->data['filesize'] = filesize($this->uploadDir . $file);
+			$playerid = ''.($this->cObj->data['uid'] * 1000) + $playerSubID;
+			$fileOptions = 'playerID:"'.$playerid.'"'.$options.($file?',soundFile:"'.str_replace(PATH_site,t3lib_div::getIndpEnv('TYPO3_SITE_URL'),t3lib_div::getFileAbsFileName($this->uploadDir . $file)).'"':'');
+			$content .= $this->cObj->cObjGetSingle($conf['beforeObj'], $conf['beforeObj.']);
+			$content.= '<p id="'.$this->extKey.$playerid.'"><a href="http://www.macromedia.com/go/getflashplayer">'.$this->pi_getLL('getFlash1').'</a> '.$this->pi_getLL('getFlash2').'</p>
 <script type="text/javascript">
-  swfobject.embedSWF("'.$swfFile.'","'.$this->extKey.$this->cObj->data['uid'].'", "290", "24", "7.0.0", "expressInstall.swf",{'.$options.'},{wmode:"transparent",bgcolor:"#FFFFFF"},{id:"audioplayer'.$this->cObj->data['uid'].'"});
+  swfobject.embedSWF("'.$swfFile.'","'.$this->extKey.$playerid.'", "'.$plwidth.'", "'.$plheight.'", "7.0.0", "expressInstall.swf",{'.$fileOptions.'},{wmode:"transparent",bgcolor:"#FFFFFF"},{id:"audioplayer'.$playerid.'"});
 </script>';
-		$content.= $this->cObj->cObjGetSingle($conf['afterObj'], $conf['afterObj.']);
+			$content .= $this->cObj->cObjGetSingle($conf['afterObj'], $conf['afterObj.']);
+			$playerSubID++;
+		}
+		$content .= $this->cObj->cObjGetSingle($conf['afterAllObj'], $conf['afterAllObj.']);
 		return $this->pi_wrapInBaseClass($content);
 	}
 	

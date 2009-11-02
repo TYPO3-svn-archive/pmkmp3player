@@ -38,5 +38,11 @@ pmkmp3player {
 	
 	# cat=pmkmp3player/color/12; type=color; label=Progress track border color:
 	border = #666666
+
+	# cat=pmkmp3player/dims/d1; type=int+; label=Width of the player, when playing:
+	width = 290
+
+	# cat=pmkmp3player/dims/d2; type=int+; label=Height of the player:
+	height = 24
 }
 

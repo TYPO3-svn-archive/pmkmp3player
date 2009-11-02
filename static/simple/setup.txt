@@ -14,11 +14,19 @@ plugin.tx_pmkmp3player_pi1 {
 	loader = {$pmkmp3player.loader}
 	track = {$pmkmp3player.track}
 	border = {$pmkmp3player.border}
-	
+	width = {$pmkmp3player.width}
+	height = {$pmkmp3player.height}
+
+	beforeAllObj = COA
+	beforeAllObj {
+	}
 	beforeObj = COA
 	beforeObj {
 	}
 	afterObj = COA
 	afterObj {
+	}
+	afterAllObj = COA
+	afterAllObj {
 	}
 }

@@ -4,7 +4,7 @@
 		<languageKey index="default" type="array">
 			<label index="tt_content.list_type_pi1">Flash MP3 Player</label>
 			<label index="tt_content.flexform_pi1.s_def">Settings</label>
-			<label index="tt_content.flexform_pi1.s_def.file">MP3 file</label>
+			<label index="tt_content.flexform_pi1.s_def.file">MP3 file(s)</label>
 			<label index="tt_content.flexform_pi1.s_def.autostart">Autostart</label>
 			<label index="tt_content.flexform_pi1.s_def.loop">Loop</label>
 			<label index="tt_content.flexform_pi1.s_def.bgcolor">Background color</label>
@@ -14,7 +14,7 @@
 		<languageKey index="dk" type="array">
 			<label index="tt_content.list_type_pi1">Flash MP3 Afspiller</label>
 			<label index="tt_content.flexform_pi1.s_def">Instillinger</label>
-			<label index="tt_content.flexform_pi1.s_def.file">MP3 fil</label>
+			<label index="tt_content.flexform_pi1.s_def.file">MP3 file(s)</label>
 			<label index="tt_content.flexform_pi1.s_def.autostart">Autostart</label>
 			<label index="tt_content.flexform_pi1.s_def.loop">Kør i løkke</label>
 			<label index="tt_content.flexform_pi1.s_def.bgcolor">Baggrundsfarve</label>
