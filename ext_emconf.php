@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext: "pmkmp3player"
 #
-# Auto generated 17-11-2009 11:05
+# Auto generated 17-11-2009 18:35
 #
 # Manual updates:
 # Only the data in the array - anything else is removed by next write.
@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'TYPO3 Flash MP3 Player using the free Wordpress Flash player from 1 Pixel Out.',
 	'category' => 'plugin',
 	'shy' => 0,
-	'version' => '1.2.0',
+	'version' => '1.2.1',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',
