@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2007-2009 Peter Klein <peter@umloud.dk>
+*  (c) 2007-2009 Peter Klein <pmk@io.dk>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -27,7 +27,7 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
 /**
  * Plugin 'Flash MP3 Player' for the 'pmkmp3player' extension.
  *
- * @author	Peter Klein <peter@umloud.dk>
+ * @author	Peter Klein <pmk@io.dk>
  * @package	TYPO3
  * @subpackage	tx_pmkmp3player
  */
